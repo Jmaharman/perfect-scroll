@@ -15,7 +15,8 @@ var clickRailHandler = require('./handler/click-rail')
   , mouseWheelHandler = require('./handler/mouse-wheel')
   , nativeScrollHandler = require('./handler/native-scroll')
   , selectionHandler = require('./handler/selection')
-  , touchHandler = require('./handler/touch');
+  , touchHandler = require('./handler/touch')
+  , documentScrollHandler = require('./handler/document');
 
 module.exports = function (element, userSettings) {
   userSettings = typeof userSettings === 'object' ? userSettings : {};
@@ -32,6 +33,7 @@ module.exports = function (element, userSettings) {
   mouseWheelHandler(element);
   nativeScrollHandler(element);
   selectionHandler(element);
+  documentScrollHandler(element);
 
   if (h.env.supportsTouch || h.env.supportsIePointer) {
     touchHandler(element, h.env.supportsTouch, h.env.supportsIePointer);
