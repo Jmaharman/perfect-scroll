@@ -21,7 +21,7 @@ $ps-bar-hover: #999;
 // Scrollbar mixins
 @mixin scrollbar-rail-default {
   display: none;
-  position: absolute; /* please don't change 'position' */
+  position: fixed; /* please don't change 'position' */
   @include border-radius(4px);
   opacity: 0;
   @include transition(background-color .2s linear, opacity .2s linear);

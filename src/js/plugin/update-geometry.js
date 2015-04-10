@@ -19,7 +19,9 @@ function getThumbSize(i, thumbSize) {
 }
 
 function updateCss(element, i) {
-  var xRailOffset = {width: i.railXWidth};
+  var rect = element.getBoundingClientRect()
+    , xRailOffset = {width: i.railXWidth};
+
   if (i.isRtl) {
     xRailOffset.left = element.scrollLeft + i.containerWidth - i.contentWidth;
   } else {
@@ -48,6 +50,8 @@ function updateCss(element, i) {
   }
   d.css(i.scrollbarYRail, yRailOffset);
 
+  d.css(i.scrollbarYRail, {top: rect.top, left: rect.width + rect.left - 11});
+  d.css(i.scrollbarXRail, {top: rect.top + rect.height - 11, left: rect.left});
   d.css(i.scrollbarX, {left: i.scrollbarXLeft, width: i.scrollbarXWidth - i.railBorderXWidth});
   d.css(i.scrollbarY, {top: i.scrollbarYTop, height: i.scrollbarYHeight - i.railBorderYWidth});
 }
