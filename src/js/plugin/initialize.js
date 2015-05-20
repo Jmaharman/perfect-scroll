@@ -19,7 +19,10 @@ var clickRailHandler = require('./handler/click-rail')
   , documentScrollHandler = require('./handler/document');
 
 module.exports = function (element, userSettings) {
-  userSettings = typeof userSettings === 'object' ? userSettings : {};
+  userSettings = typeof userSettings === 'object' ? userSettings : {
+    railXWidth: 7,
+    railYHeight: 7
+  };
 
   cls.add(element, 'ps-container');
 
