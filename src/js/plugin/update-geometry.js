@@ -71,9 +71,9 @@ module.exports = function (element) {
     d.appendTo(i.scrollbarYRail, element);
   }
 
+  i.railXWidth = i.containerWidth - i.railXMarginWidth;
   if (!i.settings.suppressScrollX && i.containerWidth + i.settings.scrollXMarginOffset < i.contentWidth) {
     i.scrollbarXActive = true;
-    i.railXWidth = i.containerWidth - i.railXMarginWidth;
     i.scrollbarXWidth = getThumbSize(i, h.toInt(i.railXWidth * i.containerWidth / i.contentWidth));
     i.scrollbarXLeft = h.toInt(element.scrollLeft * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth));
   } else {
@@ -83,9 +83,9 @@ module.exports = function (element) {
     element.scrollLeft = 0;
   }
 
+  i.railYHeight = i.containerHeight - i.railYMarginHeight;
   if (!i.settings.suppressScrollY && i.containerHeight + i.settings.scrollYMarginOffset < i.contentHeight) {
     i.scrollbarYActive = true;
-    i.railYHeight = i.containerHeight - i.railYMarginHeight;
     i.scrollbarYHeight = getThumbSize(i, h.toInt(i.railYHeight * i.containerHeight / i.contentHeight));
     i.scrollbarYTop = h.toInt(element.scrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight));
   } else {
